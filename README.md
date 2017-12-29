@@ -38,7 +38,7 @@ $caiji->setIp('220.181.68.'.rand(100,200));
 设置超时时间
 
 ```
-$caiji->setTime($ruleConfig['timeOut']);
+$caiji->setTime(5);
 ```
 
 设置来源
@@ -47,14 +47,12 @@ $caiji->setTime($ruleConfig['timeOut']);
 $caiji->setRefer('http://www.baidu.com');
 ```
 
-如果采集https网页内容，需要加上下面的代码
-
-```
-$caiji->setSsl(true);
-```
-
 获的采集数据
 
 ```
 echo $caiji->getRes();
 ```
+
+中文文档
+
+https://www.kancloud.cn/daiji/php2/489121
