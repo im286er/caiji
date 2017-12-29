@@ -119,7 +119,7 @@ class CaiJi{
             curl_setopt($ch, CURLOPT_REFERER, $this->refer);
         }
         
-        if ($this->ssl){
+        if ($this->isHttps()){
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         }
         $res = curl_exec($ch);
@@ -135,7 +135,7 @@ class CaiJi{
         if ($res !== false){
             return $res;
         }
-        return '';
+        return false;
     }
      
     /**
@@ -222,6 +222,16 @@ class CaiJi{
             if (isset($mat[$checked])){
                 return $mat[$checked];
             }
+        }
+        return false;
+    }
+    /**
+     * 判断采集网址是否为https
+     * @return boolean
+     */
+    private function isHttps(){
+        if (preg_match('/^https/i', $this->url)){
+            return true;
         }
         return false;
     }
